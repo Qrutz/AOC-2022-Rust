@@ -76,7 +76,7 @@ fn p1() {
                     }
                     
                     "B" =>
-                    if me == "X" {
+                    if me == "X"  {
                         sum += 1 + 0;
                     } else if me == "Y" {
                         sum += 2 + 3;
