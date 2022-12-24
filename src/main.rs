@@ -1,7 +1,7 @@
 use std::env;
 use std::fs;
 
-fn getFile() -> String {
+fn get_file() -> String {
     let contents = fs::read_to_string("src/2.txt")
     .expect("Should have been able to read the file");
 
@@ -9,7 +9,7 @@ fn getFile() -> String {
 }
 
 fn p1() {
-    let contents = getFile();
+    let contents = get_file();
 
     let mut sum = 0;
     for line in contents.lines() {
@@ -21,14 +21,14 @@ fn p1() {
             "X" => //if opponent is X, then I win
                 if opponent == "C" {
                     sum += 7;
-                    
+
                 } else if opponent == "A" {
                     sum += 4;
                 } else if opponent == "B" {
                     sum += 1;
                 }
 
-                "Y" => 
+                "Y" =>
                 if opponent == "A" {
                     sum += 8;
                 } else if opponent == "C" {
@@ -49,23 +49,23 @@ fn p1() {
             _ => println!("Error"),
             }
         }
-        println!("{}", sum);        
+        println!("{}", sum);
     }
 
 
     fn p2() {
-        let contents = getFile();
-    
+        let contents = get_file();
+
         let mut sum = 0;
         for line in contents.lines() {
             let linex = line.split(" ").collect::<Vec<&str>>();
             let opponent = linex[0];
             let me = linex[1];
-    
+
             match opponent {
                 "A" => //if im x = lose, y= draw, z = win
                     if me == "X" {
-                        //need to lose so im scissors 
+                        //need to lose so im scissors
                         sum += 3 + 0;
 
                     } else if me == "Y" { //need to draw so im rock
@@ -74,7 +74,7 @@ fn p1() {
                         sum += 2 + 6;
 
                     }
-                    
+
                     "B" =>
                     if me == "X"  {
                         sum += 1 + 0;
@@ -95,10 +95,10 @@ fn p1() {
 
                 _ => println!("Error"),
             }
-               
+
         }
 
-        println!("{}", sum);     
+        println!("{}", sum);
 
     }
 
